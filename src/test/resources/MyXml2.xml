@@ -1,0 +1,17 @@
+<Parent>
+    <Person>
+        <LastName>Doe</LastName>
+        <FirstName>John</FirstName>
+        <Email>johndoe@email.com</Email>
+    </Person>
+    <Person>
+        <FirstName>Mickey</FirstName>
+        <LastName>Mouse</LastName>
+        <Email>mm@email.com</Email>
+    </Person>
+    <Person>
+        <FirstName>John</FirstName>
+        <LastName>Doe</LastName>
+        <Email />
+    </Person>
+</Parent>
