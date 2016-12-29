@@ -12,6 +12,6 @@
     <Person>
         <FirstName>John</FirstName>
         <LastName>Doe</LastName>
-        <Email />
+        <Email/>
     </Person>
 </Parent>

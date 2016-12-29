@@ -9,4 +9,10 @@
         <LastName>Mouse</LastName>
         <Email>mm@email.com</Email>
     </Person>
+    <Person>
+        <!-- this is a comment -->
+        <FirstName>John</FirstName>
+        <LastName>Doe</LastName>
+        <Email/>
+    </Person>
 </Parent>
