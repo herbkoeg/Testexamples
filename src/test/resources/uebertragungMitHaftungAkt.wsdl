@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.lv1871.de/audis/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.lv1871.de/audis/soap" targetNamespace="http://www.lv1871.de/audis/soap">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.lv1871.de/audis/soap">
+
+	<xs:include schemaLocation="alleVermittler.xsd"/>
+
+	<xs:element name="uebertragungMitHaftungRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="1" name="vnr" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="abschlussVmVorUebertragung" type="tns:vmidUndTg"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="dynamikVmVorUebertragung" type="tns:vmidUndTg"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="abschlussVmNachUebertragung" type="tns:vmidUndTg"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="dynamikVmNachUebertragung" type="tns:vmidUndTg"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="uebertragungMitHaftungResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="1" name="uebertragungMoeglich" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="uebertragungMitHaftungResponse">
+    <wsdl:part element="tns:uebertragungMitHaftungResponse" name="uebertragungMitHaftungResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uebertragungMitHaftungRequest">
+    <wsdl:part element="tns:uebertragungMitHaftungRequest" name="uebertragungMitHaftungRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UebertragungMitHaftungService">
+    <wsdl:operation name="uebertragungMitHaftung">
+      <wsdl:input message="tns:uebertragungMitHaftungRequest" name="uebertragungMitHaftungRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:uebertragungMitHaftungResponse" name="uebertragungMitHaftungResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UebertragungMitHaftungServiceSoap11" type="tns:UebertragungMitHaftungService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="uebertragungMitHaftung">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="uebertragungMitHaftungRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uebertragungMitHaftungResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UebertragungMitHaftungServiceService">
+    <wsdl:port binding="tns:UebertragungMitHaftungServiceSoap11" name="UebertragungMitHaftungServiceSoap11">
+      <soap:address location="http://audispserver:9380/audis/soap"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
